@@ -46,5 +46,4 @@ int main () {
         printf("El catetoB vale: %.2f cm \n", result);
         break;
     }
-
 }
