@@ -1,28 +1,14 @@
 #include <stdio.h>
 #include <math.h>
 
-void hipotenusaX(double catetoB, double catetoC, double hipotenusa) {
-    hipotenusa = sqrt((catetoB * catetoB) + (catetoC * catetoC));
-    printf("La hipotenusa vale: %f cm \n", hipotenusa);
-}
-
-void catetoBX(double catetoB, double catetoC, double hipotenusa) {
-    catetoB = sqrt(hipotenusa * hipotenusa - catetoC * catetoC);
-    printf("El catetoB vale: %f cm \n", catetoB);
-}
-
-void catetoCX(double catetoB, double catetoC, double hipotenusa) {
-    catetoC = sqrt(hipotenusa * hipotenusa - catetoB * catetoB);
-    printf("El catetoC vale: %f cm \n", catetoC);
-}
-
-void main () {
-    double catetoB;
-    double catetoC;
-    double hipotenusa;
+int main () {
+    int catetoB;
+    int catetoC;
+    int hipotenusa;
     int valor;
+    double result;
 
-    printf("Este es el noveno ejercicio del trabajo practico 3, Calcularemos el valor de hipotenusa, cateto a o catetob. \n");
+    printf("Este es el noveno ejercicio del trabajo practico 3, Calcularemos el valor de hipotenusa, cateto a o cateto b. \n");
     printf("Que valor del triangulo desconoces?\n");
     printf("Elegir uno de acuerdo a su numero: 1=hipotenusa, 2=catetoC, 3=catetoB \n");
 
@@ -32,27 +18,33 @@ void main () {
     {
     case 1:
         printf("Ingrese del catetoB en cm: \n");
-        scanf("%f", &catetoB);
+        scanf("%d", &catetoB);
         printf("Ingrese del catetoC en cm: \n");
-        scanf("%f", &catetoC);
-        hipotenusaX(catetoB, catetoC, hipotenusa);
+        scanf("%d", &catetoC);
+
+        result = sqrt(pow(catetoB, 2) + pow(catetoC, 2));
+        printf("La hipotenusa vale: %f cm \n", result);
         break;
 
     case 2:
         printf("Ingrese del catetoB en cm: \n");
-        scanf("%f", &catetoB);
+        scanf("%d", &catetoB);
         printf("Ingrese de la hipotenusa en cm: \n");
-        scanf("%f", &hipotenusa);
-        catetoCX(catetoB, hipotenusa, catetoC);
+        scanf("%d", &hipotenusa);
+
+        result = sqrt(pow(hipotenusa, 2) - pow(catetoB, 2));
+        printf("El catetoC vale: %f cm \n", result);
         break;
 
     case 3:
         printf("Ingrese del catetoC en cm: \n");
-        scanf("%f", &catetoB);
+        scanf("%d", &catetoB);
         printf("Ingrese de la hipotenusa en cm: \n");
-        scanf("%f", &hipotenusa);
-        catetoBX(catetoC, hipotenusa, catetoB);
+        scanf("%d", &hipotenusa);
+
+        result = sqrt(pow(hipotenusa, 2) - pow(catetoC, 2));
+        printf("El catetoB vale: %.2f cm \n", result);
         break;
     }
-
 }
+
